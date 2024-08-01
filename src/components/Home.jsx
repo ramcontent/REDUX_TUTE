@@ -1,12 +1,9 @@
 import React from "react";
 
-function Home() {
-
-    return(
+function Home(props) {
+    console.log("props", props);
+    return (
         <div>
-            <div className="add-to-cart">
-                <img src="https://cdn-icons-png.flaticon.com/512/8764/8764182.png" alt="" />
-            </div>
             <h1>Home Component</h1>
             <div className="cart-wrapper">
                 <div className="img-wrapper item">
@@ -21,7 +18,17 @@ function Home() {
                     </span>
                 </div>
                 <div className="btn-wrapper item">
-                    <button>Add To Cart</button>
+                    <button
+                        onClick={() =>
+                            props.addToCartHandler({ price: 1000, name: 'iPhone 15' })
+                        }>
+                        Add To Cart</button>
+                        <button
+                        className="remove-cart-btn"
+                        onClick={() =>
+                            {props.removeToCartHandler()}
+                        }>
+                        Remove To Cart</button>
                 </div>
             </div>
         </div>
